@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="row mt-5">
+    <div class="col-6 offset-3">
+        <div class="card bg-trans border-deep-cyan">
+            <div class="card-body">
+                <h5 class="card-title">User Login</h5>
+                <!-- <p class="card-text">Content</p> -->
+                <form action="" method="post">
+                    <div class="form-group">
+                      <input type="text" [(ngModel)]="username" name="username" class="form-control" (change)="log(username)">
+                      <small id="userhelpId" class="form-text text-muted float-left">Please Enter your Username</small>
+                      <div class="alert-alert-info" *ngIf="username.touched">
+                        <p>hello</p>
+                        <ul class="errors">
+                          <li></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email">
+                      <small id="emailhelpId" class="form-text text-muted float-left">Please Enter your Email</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+                      <small id="passhelpId" class="form-text text-muted float-left">Please Enter your Email</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
