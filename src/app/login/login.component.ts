@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  login: any;
   rForm: FormGroup;
   post: any;
   email: string = '' ;
@@ -17,7 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.rForm = fb.group({
       // for the email and password and all quotes may or may not be added
-      email: [null, Validators.compose([Validators.required, Validators.pattern('banana')])] , // the first value null sets the initial value of the form
+      email: [null, Validators.compose([
+        Validators.required, Validators.pattern('[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*')
+      ])] , // the first value null sets the initial value of the form
      password: [null, Validators.compose([Validators.required, Validators.minLength(8)])]
     //  ,validate: ''
     }) ;
@@ -28,7 +31,6 @@ export class LoginComponent implements OnInit {
     this.email = post.email ;
   }
 
-  log(x){ console.log(x) }
 
 
   ngOnInit() {

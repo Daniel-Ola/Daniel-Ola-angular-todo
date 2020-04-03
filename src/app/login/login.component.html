@@ -9,9 +9,11 @@
                   <form action="" method="post" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
                       <div class="form-group row col-12">
                         <label for="email" class="float-left">Enter your email *</label>
-                        <input type="text" class="form-control" id="email" name="email" formControlName="email" (change)="log(rForm.controls['email'])">
+                        <input type="text" class="form-control" id="email" name="email" formControlName="email">
                         <!-- the formcontrolname must match the name given to the validators object  -->
-                        <small *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" id="emailhelpId" class="form-text text-muted err-alert float-left">{{ titleAlert }}</small>
+                        <small *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-text text-muted err-alert float-left">This field requires a valid email address</small>
+                        <!-- <small *ngIf="rForm.controls['email'].errors.required && rForm.controls['email'].touched" class="form-text text-muted err-alert float-left">{{ titleAlert }}</small>
+                        <small *ngIf="rForm.controls['email'].errors.pattern && rForm.controls['email'].touched" class="form-text text-muted err-alert float-left">Please provide a valid email</small> -->
                       </div>
                       <div class="form-group row col-12">
                         <label for="password" class="float-left">Enter your password *</label>
@@ -26,7 +28,7 @@
                           </div>
                         </div> -->
 
-                      <button type="submit" class="btn btn-primary form-control waves-effect waves-light" [disabled]="!rForm.valid">Login</button>
+                      <button type="submit" class="btn btn-primary btn-md float-left mt-3 waves-effect waves-light" [disabled]="!rForm.valid">Login</button>
                   </form>
                 </div>
 
