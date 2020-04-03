@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -14,7 +15,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule ,
