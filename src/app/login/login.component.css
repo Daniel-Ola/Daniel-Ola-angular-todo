@@ -1,10 +1,8 @@
 .bg-trans {
-    background-color: transparent !important;
+    background-color: white;
+    /* transparent !important; */
 }
 
-.border-deep-cyan {
-    border: 2px solid lightblue;
-}
 
 input.ng-invalid.ng-touched {
   border: 2px solid red;
@@ -29,3 +27,5 @@ input.ng-invalid.ng-touched {
     transform: translateY(0);
   }
 }
+
+

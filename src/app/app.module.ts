@@ -34,6 +34,10 @@ import { SignupComponent } from './signup/signup.component';
         component: LoginComponent
       } ,
       {
+        path: 'register',
+        component: SignupComponent
+      } ,
+      {
         path: '**' ,
         component: NotfoundComponent
       }

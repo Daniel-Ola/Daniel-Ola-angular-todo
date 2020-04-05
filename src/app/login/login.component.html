@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">User Login</h5>
                 <!-- <p class="card-text">Content</p> -->
-                <div *ngIf="!email; else formInfo"> 
+                <div *ngIf="!email; else formInfo">
                   <!-- display this sectuion if email is not submmitted or isnotset -->
                   <form action="" method="post" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
                       <div class="form-group row col-12">
@@ -30,6 +30,9 @@
 
                       <button type="submit" class="btn btn-primary btn-md float-left mt-3 waves-effect waves-light" [disabled]="!rForm.valid">Login</button>
                   </form>
+                  <div class="text-center row col-12 mt-5">
+                    <p>Don't have an account yet? <a routerLink="/register">Sign up here</a> </p>
+                  </div>
                 </div>
 
 

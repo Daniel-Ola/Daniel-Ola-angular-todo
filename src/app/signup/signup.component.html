@@ -1,1 +1,74 @@
-<p>signup works!</p>
+<div class="row mt-5">
+  <div class="col-6 offset-3">
+      <div class="card bg-trans border-deep-cyan">
+          <div class="card-body">
+              <h5 class="card-title">Registration Process</h5>
+              <!-- <p class="card-text">Content</p> -->
+              Step {{ currentStep }}
+              <!-- <div *ngIf="!email; else formInfo"> -->
+
+                <!-- display this sectuion if email is not submmitted or isnotset -->
+                <!-- <button class="btn-default btn-sm" (click)="log(rForm)">check</button> -->
+                <form action="" method="post" [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+                  <div class="form-group row col-12 zoomRight" id="usernameDiv" [hidden]="step.username">
+                    <label for="username" class="float-left">Enter your fullname *</label>
+                    <input type="text" class="form-control" id="username" name="username" formControlName="username">
+                    <small *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched" class="form-text text-muted err-alert float-left">You have to provide your fullname</small>
+                    <button type="button" class="btn btn-success mt-2 btn-sm" [disabled]="!rForm.controls['username'].valid" (click)="nextStep(2)">Continue</button>
+                  </div>
+
+                  <div class="form-group row col-12" id="emailDiv" [hidden]="step.email">
+                    <label for="email" class="float-left">Enter your email *</label>
+                    <input type="text" class="form-control" id="email" name="email" formControlName="email">
+                    <small *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-text text-muted err-alert float-left">
+                      This field requires a valid email address
+                    </small>
+                    <button type="button" class="btn btn-success btn-sm mt-2" [disabled]="!rForm.controls['email'].valid" (click)="nextStep(3)">Continue</button>
+                    <button type="button" class="btn btn-primary btn-sm mt-2 ml-3" (click)="backStep(1)">Back</button>
+                  </div>
+
+                  <div class="form-group row col-12" id="passDiv" [hidden]="step.password">
+                    <label for="password" class="float-left">Enter your password *</label>
+                    <input type="password" class="form-control" id="password" name="password" formControlName="password" (keyup)="confirmMyPassword(rForm.controls['password'].value, rForm.controls['confirmPassword'].value)">
+                    <small *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched" id="passhelpId" class="form-text text-muted float-left err-alert col-12" style="text-align: left !important;">
+                      Please Enter your password
+                    </small><br>
+                    <button type="button" class="btn btn-success btn-sm mt-2" [disabled]="!rForm.controls['password'].valid" (click)="nextStep(4)">Continue</button>
+                    <button type="button" class="btn btn-primary btn-sm mt-2 ml-3" (click)="backStep(2)">Back</button>
+                  </div>
+
+                  <div class="form-group row col-12" id="cpassDiv" [hidden]="step.confirmPassword">
+                    <label for="confirmPassword" class="float-left">Confirm your password *</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" (keyup)="confirmMyPassword(rForm.controls['password'].value, rForm.controls['confirmPassword'].value)">
+                    <small *ngIf="!rForm.controls['confirmPassword'].valid && rForm.controls['confirmPassword'].touched" id="passhelpId" class="form-text text-muted float-left err-alert">Please Enter a matching your password</small>
+                    <!-- <button type="button" class="btn btn-success btn-sm mt-2" [disabled]="confirmPasswordState" (click)="nextStep(5)">Continue</button> -->
+                    <!-- <button type="button" class="btn btn-primary btn-sm mt-2 ml-3" (click)="backStep(3)">Back</button> -->
+                  </div>
+                  <!-- <div class="form-group" [hidden]="step.agree">
+                      <div class="custom-control custom-checkbox small">
+                          <input type="checkbox" class="custom-control-input" id="customCheck" value="1" formControlName="agree">
+                        <label class="custom-control-label" for="customCheck">I agree to terms and condition</label>
+                      </div>
+                    </div> -->
+                    <small>By Clicking</small>
+                    <button type="button" class="btn btn-primary btn-md mt-2" (click)="backStep(3)" [hidden]="step.agree">Back</button>
+                  <button type="submit" class="btn btn-success mt-2 btn-md float-left waves-effect waves-light" [disabled]="!rForm.valid || confirmPasswordState" [hidden]="step.submitBtn">Sign Up</button>
+                </form>
+                <div class="text-center row col-12 mt-5">
+                  <p>Or you already have an account? please <a routerLink="/login">login here</a> </p>
+                </div>
+
+
+              <!-- </div> -->
+
+
+
+              <!-- <ng-template #formInfo>
+                {{ email }}
+                {{ password }}
+              </ng-template> -->
+
+          </div>
+      </div>
+  </div>
+</div>
