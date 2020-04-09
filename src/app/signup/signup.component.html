@@ -4,7 +4,7 @@
           <div class="card-body">
               <h5 class="card-title">Registration Process</h5>
               <!-- <p class="card-text">Content</p> -->
-              Step {{ currentStep }}
+              <span id="stepCount">Step {{ currentStep }}</span>
               <!-- <div *ngIf="!email; else formInfo"> -->
 
                 <!-- display this sectuion if email is not submmitted or isnotset -->
@@ -50,9 +50,9 @@
                         <label class="custom-control-label" for="customCheck">I agree to terms and condition</label>
                       </div>
                     </div> -->
-                    <small>By Clicking</small>
-                    <button type="button" class="btn btn-primary btn-md mt-2" (click)="backStep(3)" [hidden]="step.agree">Back</button>
-                  <button type="submit" class="btn btn-success mt-2 btn-md float-left waves-effect waves-light" [disabled]="!rForm.valid || confirmPasswordState" [hidden]="step.submitBtn">Sign Up</button>
+                    <small id="agreement" [hidden]="step.agree">By clicking here, you agree to our terms and conditions</small>
+                    <button type="button" id="lastBack" class="btn btn-primary btn-md mt-2" (click)="backStep(3)" [hidden]="step.agree">Back</button>
+                  <button type="submit" id="submitBtn" class="btn btn-success mt-2 btn-md float-left waves-effect waves-light" [disabled]="!rForm.valid || confirmPasswordState" [hidden]="step.submitBtn">Sign Up</button>
                 </form>
                 <div class="text-center row col-12 mt-5">
                   <p>Or you already have an account? please <a routerLink="/login">login here</a> </p>

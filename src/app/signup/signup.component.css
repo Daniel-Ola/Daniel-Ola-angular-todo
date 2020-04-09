@@ -24,6 +24,28 @@ input.ng-invalid.ng-touched {
   animation: 1s zoomIn ease-in forwards;
 }
 
+.fadeIn {
+  animation: 1.7s fadeIn ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes alertAnim {
   0% {
     opacity: 0;

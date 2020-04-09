@@ -50,4 +50,16 @@ export class RegisterService {
     return formValues;
   }
 
+  shiftLeft(divs) {
+    if (divs.hasClass('zoomRight')) {
+      divs.mail.toggleClass('zoomRight zoomLeft');
+    } else { divs.mail.addClass('zoomLeft'); }
+  }
+
+  shiftRight(divs) {
+    if (divs.hasClass('zoomLeft')) {
+      divs.toggleClass('zoomRight zoomLeft');
+    } else { divs.addClass('zoomRight'); }
+  }
+
 }
